@@ -5,3 +5,4 @@ let price = 20;
 
 // type annotation
 let isAvailable: boolean = true;
+console.log(drink);
