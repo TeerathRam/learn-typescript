@@ -1,7 +1,7 @@
 // type assertion
 
 let response: any = "40";
-let numericLength = (response as string).length;
+let numericLength: number = (response as string).length;
 
 type Book = { title: string };
 
@@ -12,12 +12,14 @@ console.log(bookObj.title);
 
 const username = document.querySelector("#username") as HTMLInputElement;
 
+//type any
 let value: any;
 value = 10;
 value = "xyz";
 value = 3.4;
 value.toUpperCase();
 
+// type unknown
 let newValue: unknown;
 newValue = 10;
 newValue = "Code";
@@ -34,4 +36,24 @@ try {
 	}
 
 	console.log(error);
+}
+
+//type never
+type Role = "admin" | "user";
+
+function redirect(role: Role): void {
+	if (role === "admin") {
+		console.log("Redirecting to admin dashboard");
+		return;
+	}
+
+	if (role === "user") {
+		console.log("Redirecting to user dashboard");
+		return;
+	}
+	role;
+}
+
+function neverReturn(params: any): never {
+	while (true) {}
 }
